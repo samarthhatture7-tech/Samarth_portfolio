@@ -27,10 +27,8 @@ This portfolio is designed and developed using **HTML5** and **CSS3**. It provid
 Samarth_portfolio/
 │
 ├── index.html
-├── style.css
-├── assets/
-│   ├── images/
-│   └── icons/
+├── style.css 
+├── app.js
 │
 └── README.md
 ```
