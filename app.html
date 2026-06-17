@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SAMARTH | AI &amp; Data Engineering Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Montserrat:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#333535",
+                    "tertiary-container": "#b4b2b2",
+                    "on-error-container": "#ffdad6",
+                    "surface": "#121414",
+                    "error": "#ffb4ab",
+                    "on-primary-container": "#554300",
+                    "inverse-on-surface": "#2f3131",
+                    "primary": "#f2ca50",
+                    "on-secondary": "#313030",
+                    "surface-container-low": "#1a1c1c",
+                    "on-tertiary": "#313030",
+                    "secondary": "#c9c6c5",
+                    "surface-dim": "#121414",
+                    "on-primary-fixed-variant": "#574500",
+                    "surface-bright": "#37393a",
+                    "surface-container-highest": "#333535",
+                    "primary-fixed-dim": "#e9c349",
+                    "inverse-primary": "#735c00",
+                    "on-secondary-fixed-variant": "#474646",
+                    "surface-container-lowest": "#0c0f0f",
+                    "outline": "#99907c",
+                    "secondary-fixed-dim": "#c9c6c5",
+                    "outline-variant": "#4d4635",
+                    "on-surface": "#e2e2e2",
+                    "on-error": "#690005",
+                    "secondary-container": "#4a4949",
+                    "error-container": "#93000a",
+                    "surface-container": "#1e2020",
+                    "primary-fixed": "#ffe088",
+                    "on-background": "#e2e2e2",
+                    "on-secondary-container": "#bab8b7",
+                    "surface-tint": "#e9c349",
+                    "surface-container-high": "#282a2b",
+                    "primary-container": "#d4af37",
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "on-primary-fixed": "#241a00",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "on-surface-variant": "#d0c5af",
+                    "on-tertiary-fixed-variant": "#474746",
+                    "on-tertiary-container": "#454544",
+                    "inverse-surface": "#e2e2e2",
+                    "secondary-fixed": "#e5e2e1",
+                    "tertiary-fixed": "#e5e2e1",
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "on-primary": "#3c2f00",
+                    "background": "#121414",
+                    "tertiary": "#d0cdcd"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "24px",
+                    "xs": "4px",
+                    "container-max": "1280px",
+                    "base": "8px",
+                    "lg": "48px",
+                    "xl": "80px",
+                    "gutter": "24px",
+                    "sm": "12px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-md": ["Montserrat"],
+                    "headline-xl-mobile": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "body-md": ["Inter"],
+                    "headline-xl": ["Montserrat"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-xl-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #f2ca50;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(242, 202, 80, 0.15);
+        }
+        .gold-glow:hover {
+            box-shadow: 0 0 20px rgba(242, 202, 80, 0.4);
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0c0f0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4d4635;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f2ca50;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
+<!-- Background Shader -->
+<!-- STITCH_SHADER_START:ANIMATION_3 class="fixed inset-0 w-full h-full -z-10 opacity-40" -->
+<div class="fixed inset-0 w-full h-full -z-10 opacity-40" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_3" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_3');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+varying vec2 v_texCoord;
+uniform float u_time;
+uniform vec2 u_resolution;
+
+void main() {
+    vec2 uv = v_texCoord;
+    
+    // Create a slow, subtle flowing liquid effect
+    float noise = sin(uv.x * 3.0 + u_time * 0.5) * cos(uv.y * 3.0 + u_time * 0.3);
+    noise += sin(uv.x * 6.0 - u_time * 0.2) * 0.5;
+    
+    // Base color: Deep Obsidian
+    vec3 baseColor = vec3(0.04, 0.04, 0.04);
+    
+    // Highlight color: Metallic Gold (subtle)
+    vec3 goldColor = vec3(0.83, 0.69, 0.22);
+    
+    // Mix based on noise for a deep, premium atmospheric look
+    float intensity = smoothstep(-1.0, 1.0, noise);
+    vec3 finalColor = mix(baseColor, baseColor * 1.5 + goldColor * 0.05, intensity);
+    
+    // Add a very subtle vignette
+    float vignette = 1.0 - length(uv - 0.5) * 0.8;
+    
+    gl_FragColor = vec4(finalColor * vignette, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_3 -->
+<!-- Top Navigation -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/30 backdrop-blur-md border-b border-white/5 shadow-xl shadow-primary/5">
+<nav class="flex justify-between items-center px-xl py-base max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary tracking-tighter">SAMARTH HATTURE</div>
+<div class="hidden md:flex items-center gap-md">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#about">About</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#skills">Skills</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#projects">Projects</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#contact">Contact</a>
+<button class="bg-primary-container text-on-primary-container px-md py-xs rounded-full font-label-md text-label-md scale-95 active:scale-90 transition-transform gold-glow" onclick="window.open('https://drive.google.com/file/d/1ioE_IJ6QAtxpY9_iSWHwJIbJRvYZQpAi/view?usp=sharing', '_blank')">Resume</button>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+</header>
+<main class="pt-xl">
+<!-- Hero Section -->
+<section class="min-h-screen flex flex-col justify-center px-xl max-w-container-max mx-auto relative overflow-hidden">
+<div class="grid md:grid-cols-2 gap-xl items-center">
+<div class="scroll-reveal">
+<span class="inline-block px-sm py-xs bg-primary/10 text-primary font-label-md text-label-md rounded-full mb-md">Available for New Opportunities</span>
+<h1 class="font-headline-xl text-headline-xl mb-md leading-tight">
+                        Building <span class="text-primary">AI-Powered</span>, Data-Driven &amp; Scalable Solutions
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg max-w-lg">
+                        Engineering student passionate about bridging the gap between raw data and intelligent automation. Specializing in AI integration, full-stack development, and technical precision.
+                    </p>
+<div class="flex flex-wrap gap-md">
+<a class="bg-primary text-on-primary px-lg py-md rounded-lg font-label-md text-label-md gold-glow transition-all" href="#projects">View Projects</a>
+<button class="bg-white/5 border border-primary/30 text-white px-lg py-md rounded-lg font-label-md text-label-md hover:bg-white/10 transition-all">Download CV</button>
+</div>
+</div>
+<div class="relative scroll-reveal">
+<div class="absolute inset-0 bg-primary/10 blur-[120px] rounded-full"></div>
+<img alt="Modern workspace with laptop and floating AI interfaces" class="relative z-10 w-full rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8iAW6RAnfVnoY2gBH4BSjoOnno8L1z6V6JMXaUNGHUm-0gFKWNBjqPmIGzAG6Ee2HhRtNb3tA6XV_Wvtu8lV34S7w_qli8lvc8zNUXRD74hV33Dpi_ZGavDb5CKKcsZHcJSjpKj2SXoFlWg5x6RpIGPJtkhSHfjzveKWTV6a6ZofwwnJCY62wEQzuvh2arrTyFI0UD3qFzNZa2kEDxZ-QhMnXH57k1UEX5IUtk-vLibnWSrenKQGwPdEjQJYxo0vnUSwUi9XMO5U"/>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-xl px-xl max-w-container-max mx-auto scroll-reveal" id="about">
+<div class="grid md:grid-cols-3 gap-xl items-start">
+<div class="md:col-span-1">
+<h2 class="font-headline-lg text-headline-lg sticky top-32">About <br/><span class="text-primary">My Vision</span></h2>
+</div>
+<div class="md:col-span-2 glass-card p-lg rounded-xl">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-md">
+                        I am an innovation-driven engineering student with a relentless curiosity for how technology can solve real-world complexities. My approach blends the analytical rigor of data science with the creative agility of full-stack engineering.
+                    </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        Currently focused on mastering large language model integration and high-performance data architectures. My goal is to develop systems that aren't just functional, but transformative for businesses and users alike.
+                    </p>
+<div class="grid grid-cols-2 gap-md mt-lg pt-lg border-t border-white/5">
+<div>
+<p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-xs">Education</p>
+<p class="font-body-md text-body-md">B.Tech Engineering</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-xs">Experience</p>
+<p class="font-body-md text-body-md">Python &amp; Data Science Trainee</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section class="py-xl bg-surface-container-low/50" id="skills">
+<div class="max-w-container-max mx-auto px-xl">
+<h2 class="font-headline-lg text-headline-lg mb-xl text-center">Technical <span class="text-primary">Ecosystem</span></h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md">
+<!-- Programming -->
+<div class="glass-card p-md rounded-xl scroll-reveal">
+<div class="flex items-center gap-sm mb-md text-primary">
+<span class="material-symbols-outlined">code</span>
+<h3 class="font-headline-md text-headline-md">Programming</h3>
+</div>
+<div class="space-y-md">
+<div>
+<div class="flex justify-between mb-xs"><span class="font-label-md text-label-md">Python</span><span class="text-primary">90%</span></div>
+<div class="h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-primary w-[90%]"></div></div>
+</div>
+<div>
+<div class="flex justify-between mb-xs"><span class="font-label-md text-label-md">SQL</span><span class="text-primary">85%</span></div>
+<div class="h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-primary w-[85%]"></div></div>
+</div>
+</div>
+</div>
+<!-- Frameworks -->
+<div class="glass-card p-md rounded-xl scroll-reveal">
+<div class="flex items-center gap-sm mb-md text-primary">
+<span class="material-symbols-outlined">layers</span>
+<h3 class="font-headline-md text-headline-md">Frameworks</h3>
+</div>
+<div class="space-y-md">
+<div>
+<div class="flex justify-between mb-xs"><span class="font-label-md text-label-md">Django</span><span class="text-primary">80%</span></div>
+<div class="h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-primary w-[80%]"></div></div>
+</div>
+<div>
+<div class="flex justify-between mb-xs"><span class="font-label-md text-label-md">React.js</span><span class="text-primary">70%</span></div>
+<div class="h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-primary w-[70%]"></div></div>
+</div>
+</div>
+</div>
+<!-- Data Tools -->
+<div class="glass-card p-md rounded-xl scroll-reveal">
+<div class="flex items-center gap-sm mb-md text-primary">
+<span class="material-symbols-outlined">analytics</span>
+<h3 class="font-headline-md text-headline-md">Data Tools</h3>
+</div>
+<div class="space-y-md">
+<div>
+<div class="flex justify-between mb-xs"><span class="font-label-md text-label-md">Power BI</span><span class="text-primary">85%</span></div>
+<div class="h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-primary w-[85%]"></div></div>
+</div>
+<div>
+<div class="flex justify-between mb-xs"><span class="font-label-md text-label-md">Tableau</span><span class="text-primary">75%</span></div>
+<div class="h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-primary w-[75%]"></div></div>
+</div>
+</div>
+</div>
+<!-- AI & Productivity -->
+<div class="glass-card p-md rounded-xl scroll-reveal">
+<div class="flex items-center gap-sm mb-md text-primary">
+<span class="material-symbols-outlined">bolt</span>
+<h3 class="font-headline-md text-headline-md">AI Tools</h3>
+</div>
+<div class="space-y-md">
+<div>
+<div class="flex justify-between mb-xs"><span class="font-label-md text-label-md">Cursor AI</span><span class="text-primary">95%</span></div>
+<div class="h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-primary w-[95%]"></div></div>
+</div>
+<div>
+<div class="flex justify-between mb-xs"><span class="font-label-md text-label-md">Claude/GPT-4</span><span class="text-primary">90%</span></div>
+<div class="h-1 bg-white/5 rounded-full overflow-hidden"><div class="h-full bg-primary w-[90%]"></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Projects Grid -->
+<section class="py-xl px-xl max-w-container-max mx-auto" id="projects">
+<div class="flex justify-between items-end mb-xl">
+<div>
+<p class="font-label-sm text-label-sm text-primary uppercase mb-xs">Portfolio</p>
+<h2 class="font-headline-lg text-headline-lg">Featured <span class="text-primary">Work</span></h2>
+</div>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- Project 1 -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col group scroll-reveal">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A detailed dashboard showing vendor performance analytics with glowing data visualizations and charts set against a dark glassmorphic background, reflecting a professional enterprise environment with gold accents and high precision interface design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc406aBO2ASrN6ET3NXJJs6HCPJlu5vZ9na9jPflBlUZ7V4o7lajlS3Xm0-VJSu8GM3-nsSGDetDx0N6xUVgQtfe89zggTXK96pKDtyXwJ0QMDe1zyVIa7Y0H5G9g7CG0Pi0EGdE-tcc5d9Of3DxfFuQjWgLiCoVFbQtyBzH08Ytee552iDWH8ajGYLZLB3vD-MkkyphKPRkoVJ0SXAFAw3yIc8faXD4UdiBNWemdbYSLkzOaqJtsI45rAS4iLirQWUGAUxx0mzLA"/>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="font-headline-md text-headline-md mb-sm">Vendor Performance Analytics</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">Advanced dashboard for tracking supply chain efficiency and reliability using Power BI and Python.</p>
+<div class="flex flex-wrap gap-xs mb-md">
+<span class="px-xs py-1 rounded-full bg-primary/10 text-primary font-label-sm text-[10px] uppercase">Power BI</span>
+<span class="px-xs py-1 rounded-full bg-primary/10 text-primary font-label-sm text-[10px] uppercase">SQL</span>
+</div>
+<button class="text-primary flex items-center gap-xs font-label-md text-label-md group/btn">
+                            Explore Case Study <span class="material-symbols-outlined text-[18px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col group scroll-reveal">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="High-end real estate visualization on a digital screen with predictive price mapping and neural network diagrams. The aesthetic is ultra-modern and premium, featuring obsidian textures and metallic gold highlights for data points in a minimalist digital space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6LEtg2pVKbWM4Q1G70RxwUqFzA2ZlKMpHEoBOERJ23xVSWkgkRqdeYSDkOZbyle-_Y970yVKPmdLj5YOW5gYG3fbkd8wOJgxQBL9lwSszEq3VWiR4w-Cc1kqvIi-t786YBsee5KHtXlqthhAfmU4cLpAvsww_ztOmu8jmyrsMMNLo9kwl0UsYc_fqhf_wtxWdJN7Gg8xSS5wzXAC6KQ5EtYnOtflmjwaJ2flNlowb0t29vxjKBQVu0FE-tM9LZao2x67GsrFKPRo"/>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="font-headline-md text-headline-md mb-sm">Real Estate Price Analysis</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">Machine learning model for predicting property valuations based on historical trends and local features.</p>
+<div class="flex flex-wrap gap-xs mb-md">
+<span class="px-xs py-1 rounded-full bg-primary/10 text-primary font-label-sm text-[10px] uppercase">Python</span>
+<span class="px-xs py-1 rounded-full bg-primary/10 text-primary font-label-sm text-[10px] uppercase">Pandas</span>
+</div>
+<button class="text-primary flex items-center gap-xs font-label-md text-label-md group/btn">
+                            Explore Case Study <span class="material-symbols-outlined text-[18px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="glass-card rounded-xl overflow-hidden flex flex-col group scroll-reveal">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Conceptual AI interface analyzing a professional document with highlighting neural paths. The scene is lit by soft gold ambient light against a deep black glass surface, showcasing a sophisticated AI application for resume optimization and career analytics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChgW8prhEjZVtntLtP1_v6gxGXHm_b0WLVME5Gt7oGm70K_49-Na8ogBkVmCA8HnB-BcoHLfT4YNuhW6fE7MXrC_-8zeF9x3qFLje3x8iCzKwD3TotEQFXz3E9aUKKbFCihugoqDrhgv7Rgu220f-s8xZ4HbALr8ZnhTgrkZUhaxmNuJ29dD4bmv0LK0wz7gzPXi2AV6Xgu2y0gZNjG-c8U34iHgDoksnb1C_RE9NuZYfLjoVPnEXamnbulfs_frwbfwcmv8-cAeg"/>
+</div>
+<div class="p-md flex flex-col flex-grow">
+<h3 class="font-headline-md text-headline-md mb-sm">AI Resume Analyzer</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md flex-grow">NLP-driven tool that evaluates resumes against job descriptions to provide optimization scores.</p>
+<div class="flex flex-wrap gap-xs mb-md">
+<span class="px-xs py-1 rounded-full bg-primary/10 text-primary font-label-sm text-[10px] uppercase">Django</span>
+<span class="px-xs py-1 rounded-full bg-primary/10 text-primary font-label-sm text-[10px] uppercase">OpenAI</span>
+</div>
+<button class="text-primary flex items-center gap-xs font-label-md text-label-md group/btn">
+                            Explore Case Study <span class="material-symbols-outlined text-[18px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Education & Experience -->
+<section class="py-xl bg-surface-container-low/30 px-xl">
+<div class="max-w-container-max mx-auto grid md:grid-cols-2 gap-xl">
+<!-- Education -->
+<div class="scroll-reveal">
+<h2 class="font-headline-lg text-headline-lg mb-xl">Academic <span class="text-primary">Journey</span></h2>
+<div class="space-y-md">
+<div class="flex gap-md">
+<div class="flex flex-col items-center">
+<div class="w-3 h-3 bg-primary rounded-full"></div>
+<div class="w-0.5 flex-grow bg-white/10"></div>
+</div>
+<div class="pb-lg">
+<h4 class="font-headline-md text-headline-md">B.Tech Engineering</h4>
+<p class="text-primary font-label-md text-label-md mb-xs">DBATU | 6.5 CGPA</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Focused on computing foundations and data architectures.</p>
+</div>
+</div>
+<div class="flex gap-md">
+<div class="flex flex-col items-center">
+<div class="w-3 h-3 bg-white/20 rounded-full"></div>
+<div class="w-0.5 flex-grow bg-white/10"></div>
+</div>
+<div class="pb-lg">
+<h4 class="font-headline-md text-headline-md">Higher Secondary (HSC)</h4>
+<p class="text-primary font-label-md text-label-md mb-xs">MSBSHSE | 58%</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Specialized in Science and Mathematics.</p>
+</div>
+</div>
+<div class="flex gap-md">
+<div class="flex flex-col items-center">
+<div class="w-3 h-3 bg-white/20 rounded-full"></div>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md">Secondary School (SSC)</h4>
+<p class="text-primary font-label-md text-label-md mb-xs">MSBSHSE | 85%</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Foundation in scientific and logical reasoning.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Experience -->
+<div class="scroll-reveal">
+<h2 class="font-headline-lg text-headline-lg mb-xl">Professional <span class="text-primary">Tracks</span></h2>
+<div class="glass-card p-lg rounded-xl">
+<div class="flex items-center gap-md mb-md">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">work</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md">Trainee</h4>
+<p class="text-primary font-label-md text-label-md">The Kiran Academy</p>
+</div>
+</div>
+<ul class="space-y-sm">
+<li class="flex items-start gap-sm font-body-md text-body-md text-on-surface-variant">
+<span class="text-primary mt-1 material-symbols-outlined text-[14px]">check_circle</span>
+                                Intensive training in Python Full Stack development and Data Science pipelines.
+                            </li>
+<li class="flex items-start gap-sm font-body-md text-body-md text-on-surface-variant">
+<span class="text-primary mt-1 material-symbols-outlined text-[14px]">check_circle</span>
+                                Developed multiple end-to-end applications integrating SQL databases and Django.
+                            </li>
+<li class="flex items-start gap-sm font-body-md text-body-md text-on-surface-variant">
+<span class="text-primary mt-1 material-symbols-outlined text-[14px]">check_circle</span>
+                                Optimized data processing workflows for exploratory data analysis projects.
+                            </li>
+</ul>
+</div>
+<div class="mt-xl">
+<p class="font-label-sm text-label-sm text-primary uppercase mb-sm">Languages</p>
+<div class="flex flex-wrap gap-sm">
+<span class="px-md py-xs bg-white/5 border border-white/10 rounded-full font-label-md text-label-md">English</span>
+<span class="px-md py-xs bg-white/5 border border-white/10 rounded-full font-label-md text-label-md">Hindi</span>
+<span class="px-md py-xs bg-white/5 border border-white/10 rounded-full font-label-md text-label-md">Marathi</span>
+<span class="px-md py-xs bg-white/5 border border-white/10 rounded-full font-label-md text-label-md">Kannada</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Certifications -->
+<section class="py-xl px-xl max-w-container-max mx-auto">
+<h2 class="font-headline-lg text-headline-lg mb-xl">Verified <span class="text-primary">Excellence</span></h2>
+<div class="grid md:grid-cols-2 gap-md">
+<div class="glass-card p-md rounded-xl flex items-center gap-md scroll-reveal">
+<span class="material-symbols-outlined text-primary text-[40px]">verified</span>
+<div>
+<h4 class="font-headline-md text-headline-md">IBM Data Science</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Professional Certification in Data Analysis &amp; Visualization.</p>
+</div>
+</div>
+<div class="glass-card p-md rounded-xl flex items-center gap-md scroll-reveal">
+<span class="material-symbols-outlined text-primary text-[40px]">psychology</span>
+<div>
+<h4 class="font-headline-md text-headline-md">GenAI Fundamentals</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Google &amp; Simplilearn specialized training in Generative AI.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-xl px-xl max-w-container-max mx-auto mb-xl" id="contact">
+<div class="glass-card p-lg md:p-xl rounded-2xl scroll-reveal">
+<div class="grid md:grid-cols-2 gap-xl">
+<div>
+<h2 class="font-headline-xl text-headline-xl mb-md">Let's <span class="text-primary">Collaborate</span></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl">
+                            Ready to transform your data into intelligence? Reach out for projects, collaboration, or just a coffee chat.
+                        </p>
+<div class="space-y-lg">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-primary uppercase">Email</p>
+<p class="font-body-md text-body-md">samarthhatture7@gmail.com</p>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-primary uppercase">Phone</p>
+<p class="font-body-md text-body-md">+91 98765 43210</p>
+</div>
+</div>
+</div>
+</div>
+<form class="space-y-md">
+<div class="grid grid-cols-2 gap-md">
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Full Name</label>
+<input class="w-full bg-surface-container border-white/10 rounded-lg p-md text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Email</label>
+<input class="w-full bg-surface-container border-white/10 rounded-lg p-md text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="john@example.com" type="email"/>
+</div>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Subject</label>
+<input class="w-full bg-surface-container border-white/10 rounded-lg p-md text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Project Inquiry" type="text"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Message</label>
+<textarea class="w-full bg-surface-container border-white/10 rounded-lg p-md text-white h-32 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none" placeholder="How can I help you?"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary py-md rounded-lg font-headline-md text-headline-md gold-glow transition-all" type="submit">Send Message</button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-white/5">
+<div class="flex flex-col md:flex-row justify-between items-center px-xl py-lg max-w-container-max mx-auto gap-md">
+<div class="font-headline-md text-headline-md text-primary">SAMARTH HATTURE</div>
+<div class="font-body-md text-body-md text-on-tertiary-container text-center">© 2024 Samarth Hatture. Built with Precision.</div>
+<div class="flex gap-md">
+<a class="font-label-sm text-label-sm text-on-tertiary-container hover:text-primary transition-colors" href="#">LinkedIn</a>
+<a class="font-label-sm text-label-sm text-on-tertiary-container hover:text-primary transition-colors" href="#">GitHub</a>
+<a class="font-label-sm text-label-sm text-on-tertiary-container hover:text-primary transition-colors" href="#">Email</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Scroll Reveal Logic
+        const reveals = document.querySelectorAll(".scroll-reveal");
+        
+        const revealOnScroll = () => {
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 100;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add("active");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", revealOnScroll);
+        // Trigger once on load
+        window.addEventListener("load", revealOnScroll);
+
+        // Header scroll behavior
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-2');
+                header.classList.remove('py-base');
+            } else {
+                header.classList.add('py-base');
+                header.classList.remove('py-2');
+            }
+        });
+    </script>
+</body></html>
